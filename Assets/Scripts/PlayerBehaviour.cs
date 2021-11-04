@@ -21,7 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
         checkIfGrounded();
@@ -37,6 +37,11 @@ public class PlayerBehaviour : MonoBehaviour
             float y = Input.GetAxisRaw("Vertical");
             float jump = Input.GetAxisRaw("Jump");
 
+            if (x != 0)
+            {
+                FlipPlayer(x);
+            }
+
             Vector2 worldTouch = new Vector2();
 
             foreach (var touch in Input.touches)
@@ -44,8 +49,8 @@ public class PlayerBehaviour : MonoBehaviour
                 worldTouch = Camera.main.ScreenToWorldPoint(touch.position);
             }
 
-            float HorizontalMoveForce = x * HorizontalForce * delTime;
-            float JumpMoveForce = jump * VerticalForce * delTime;
+            float HorizontalMoveForce = x * HorizontalForce;
+            float JumpMoveForce = jump * VerticalForce;
 
             playerRB.AddForce(new Vector2(HorizontalMoveForce, JumpMoveForce));
             playerRB.velocity *= 0.98f;
@@ -57,6 +62,14 @@ public class PlayerBehaviour : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(groundOrigin.position, groundOriginRadius, Vector2.down, groundOriginRadius, groundLayerMask);
 
         isGrounded = (hit) ? true : false;
+    }
+
+    private float FlipPlayer(float x)
+    {
+        x = (x > 0) ? 1 : -1;
+
+        transform.localScale = new Vector3(x, 1.0f);
+        return x;
     }
 
     private void OnDrawGizmos()

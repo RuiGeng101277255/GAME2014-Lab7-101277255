@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 403950325}
   - component: {fileID: 403950324}
   - component: {fileID: 403950326}
+  - component: {fileID: 403950328}
+  - component: {fileID: 403950327}
   m_Layer: 6
   m_Name: PlatformLayer
   m_TagString: Untagged
@@ -813,10 +815,67 @@ TilemapCollider2D:
   m_Material: {fileID: 6200000, guid: 4b7a2ba0d1aa64646b4159ce4ea41712, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!66 &403950327
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403950322}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 403950326}
+    m_ColliderPaths:
+    - - X: 40000000
+        Y: -40000000
+      - X: 40000000
+        Y: -10000000
+      - X: -120000000
+        Y: -10000000
+      - X: -120000000
+        Y: -40000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 3.999971, y: -4}
+      - {x: 3.999971, y: -1}
+      - {x: -12, y: -1.0000293}
+      - {x: -11.99997, y: -4}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &403950328
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403950322}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,8 +1139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49220378a8bd90498d7aebd3eb1e114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalForce: 500
-  VerticalForce: 3000
+  HorizontalForce: 10
+  VerticalForce: 35
   isGrounded: 0
   groundOrigin: {fileID: 12067572}
   groundOriginRadius: 0.4
