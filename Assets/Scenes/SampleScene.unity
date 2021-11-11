@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 403950327}
   m_Layer: 6
   m_Name: PlatformLayer
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5294,18 +5294,6 @@ PrefabInstance:
     - target: {fileID: 1142336861581877703, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
-      propertyPath: dir
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
-      propertyPath: dist
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
-      propertyPath: speed
-      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
