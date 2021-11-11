@@ -5295,5 +5295,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
+      propertyPath: dir
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
+      propertyPath: dist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862938172072419715, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
+      propertyPath: speed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6e12eec349b1bc4c942a4376ddaaa42, type: 3}
