@@ -13,11 +13,13 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask groundLayerMask;
 
     private Rigidbody2D playerRB;
+    private Animator playerAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,11 @@ public class PlayerBehaviour : MonoBehaviour
             if (x != 0)
             {
                 FlipPlayer(x);
+                playerAnimator.SetInteger("AnimationState", 1);
+            }
+            else
+            {
+                playerAnimator.SetInteger("AnimationState", 0);
             }
 
             Vector2 worldTouch = new Vector2();
@@ -54,6 +61,10 @@ public class PlayerBehaviour : MonoBehaviour
 
             playerRB.AddForce(new Vector2(HorizontalMoveForce, JumpMoveForce));
             playerRB.velocity *= 0.98f;
+        }
+        else
+        {
+            playerAnimator.SetInteger("AnimationState", 2);
         }
     }
 
