@@ -1225,6 +1225,8 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  state: 0
+  airControl: 0.5
 --- !u!95 &766782680
 Animator:
   serializedVersion: 3

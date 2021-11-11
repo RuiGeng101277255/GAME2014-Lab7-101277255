@@ -12,8 +12,16 @@ public class PlayerBehaviour : MonoBehaviour
     public float groundOriginRadius;
     public LayerMask groundLayerMask;
 
+    [Header("Animation State")]
+    public PlayerAnimationStates state;
+
+    [Range(0.1f, 1.0f)]
+    public float airControl;
+
     private Rigidbody2D playerRB;
     private Animator playerAnimator;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,22 +39,23 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Move()
     {
+        float x = Input.GetAxisRaw("Horizontal");
+
         if (isGrounded)
         {
-            float delTime = Time.deltaTime;
-
-            float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
             float jump = Input.GetAxisRaw("Jump");
 
             if (x != 0)
             {
                 FlipPlayer(x);
-                playerAnimator.SetInteger("AnimationState", 1);
+                playerAnimator.SetInteger("AnimationState", (int) PlayerAnimationStates.RUN);
+                state = PlayerAnimationStates.RUN;
             }
             else
             {
-                playerAnimator.SetInteger("AnimationState", 0);
+                playerAnimator.SetInteger("AnimationState", (int)PlayerAnimationStates.IDLE);
+                state = PlayerAnimationStates.IDLE;
             }
 
             Vector2 worldTouch = new Vector2();
@@ -59,12 +68,26 @@ public class PlayerBehaviour : MonoBehaviour
             float HorizontalMoveForce = x * HorizontalForce;
             float JumpMoveForce = jump * VerticalForce;
 
-            playerRB.AddForce(new Vector2(HorizontalMoveForce, JumpMoveForce));
+            float PlayerMass = playerRB.mass * playerRB.gravityScale;
+
+            playerRB.AddForce(new Vector2(HorizontalMoveForce, JumpMoveForce) * PlayerMass);
             playerRB.velocity *= 0.98f;
         }
         else
         {
-            playerAnimator.SetInteger("AnimationState", 2);
+            playerAnimator.SetInteger("AnimationState", (int)PlayerAnimationStates.JUMP);
+            state = PlayerAnimationStates.JUMP;
+
+            if (x != 0)
+            {
+                FlipPlayer(x);
+
+                float HorizontalMoveForce = x * HorizontalForce * airControl;
+
+                float PlayerMass = playerRB.mass * playerRB.gravityScale;
+
+                playerRB.AddForce(new Vector2(HorizontalMoveForce, 0.0f) * PlayerMass);
+            }
         }
     }
 
