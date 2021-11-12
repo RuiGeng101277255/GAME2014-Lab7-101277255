@@ -12,5 +12,9 @@ public class DeathController : MonoBehaviour
         {
             collision.transform.position = PlayerSpawnPoint.position;
         }
+        else
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

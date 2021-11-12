@@ -2022,7 +2022,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.85079926, y: 1}
+    m_SensorSize: {x: 0.84182775, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5062,7 +5062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 609393111732911616, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 609393111732911616, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5104,18 +5104,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate
       objectReference: {fileID: 0}
-    - target: {fileID: 609393111732911646, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 609393111732911646, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
-      propertyPath: m_GravityScale
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 609393111732911647, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 6c464715d6510464e8e04f4ba22f79de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e586ac9faf58e4099ba8ebc36f9385, type: 3}
 --- !u!1001 &1142336861946622363
